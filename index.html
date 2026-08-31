@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drewmedia | Video Editor Portfolio</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#080a0f;color:#fff;line-height:1.6}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+.container{width:min(1100px,92%);margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(8,10,15,.94);backdrop-filter:blur(12px);border-bottom:1px solid #242936}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:20px;font-weight:800}
+.navlinks{display:flex;gap:24px;color:#aeb5c4;font-size:14px}
+.navlinks a:hover{color:#fff}
+.hero{min-height:650px;display:flex;align-items:center;padding:90px 0}
+.kicker{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#a995ff;font-weight:bold}
+h1{font-size:clamp(45px,7vw,78px);line-height:1;max-width:850px;margin:18px 0 25px}
+.hero p{font-size:19px;color:#aeb5c4;max-width:700px}
+.buttons{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-block;background:#8064ff;padding:13px 21px;border-radius:10px;font-weight:bold}
+.btn.secondary{background:transparent;border:1px solid #2b3140}
+section{padding:80px 0}
+h2{font-size:36px;margin-bottom:10px}
+.section-intro{color:#aeb5c4;max-width:700px}
+.portfolio{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}
+.project{background:#11151e;border:1px solid #272d39;border-radius:18px;padding:12px;overflow:hidden}
+.project.featured{border-color:#8064ff;box-shadow:0 0 0 1px rgba(128,100,255,.18)}
+.project video{width:100%;display:block;border-radius:12px;background:#000;aspect-ratio:16/9;object-fit:contain}
+.project-info{padding:17px 6px 5px}
+.project-info h3{font-size:20px}
+.project-info p{color:#aeb5c4;font-size:14px}
+.featured-label{display:inline-block;color:#a995ff;font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px}
+.posters{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:30px}
+.poster-card,.family-card{background:#11151e;border:1px solid #272d39;border-radius:14px;padding:8px;cursor:pointer;overflow:hidden}
+.poster-card img{display:block;width:100%;height:280px;object-fit:cover;border-radius:9px;transition:transform .2s}
+.poster-card:hover img,.family-card:hover img{transform:scale(1.02)}
+.family-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px;margin-top:30px}
+.family-card:first-child{grid-row:span 2}
+.family-card img{display:block;width:100%;height:260px;object-fit:cover;border-radius:9px}
+.family-card:first-child img{height:538px}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.service{background:#11151e;border:1px solid #272d39;border-radius:15px;padding:24px}
+.service h3{margin-bottom:7px}
+.service p{color:#aeb5c4}
+.about{max-width:750px}
+.about p{color:#aeb5c4;font-size:18px}
+.contact{background:#11151e;border:1px solid #272d39;border-radius:20px;padding:35px}
+.contact p{color:#aeb5c4;margin:8px 0}
+footer{border-top:1px solid #242936;padding:28px 0;color:#aeb5c4;font-size:13px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:25px;z-index:100}
+.modal.open{display:flex}
+.modal img{max-width:96vw;max-height:90vh;border-radius:12px}
+.modal button{position:absolute;top:15px;right:22px;border:0;background:transparent;color:#fff;font-size:38px;cursor:pointer}
+@media(max-width:900px){.posters{grid-template-columns:repeat(3,1fr)}.family-grid{grid-template-columns:1fr 1fr}.family-card:first-child{grid-row:auto}.family-card:first-child img{height:300px}}
+@media(max-width:800px){
+.navlinks{display:none}
+.hero{min-height:570px}
+.portfolio,.services{grid-template-columns:1fr}
+.posters{grid-template-columns:repeat(2,1fr)}
+h1{font-size:48px}
+.family-grid{grid-template-columns:1fr}
+.family-card img,.family-card:first-child img{height:320px}
+}
+
+.video-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+</style>
+</head>
+<body>
+<nav>
+<div class="container nav">
+<div class="logo">Drewmedia</div>
+<div class="navlinks">
+<a href="#work">Work</a>
+<a href="#posters">Posters</a>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+</nav>
+
+<section class="hero">
+<div class="container">
+<div class="kicker">Video Editor • Digital Content Specialist</div>
+<h1>Turning raw footage into content people want to watch.</h1>
+<p>I create engaging and polished video content for brands, businesses, creators, and social media.</p>
+<div class="buttons">
+<a class="btn" href="#work">View My Work</a>
+<a class="btn secondary" href="#contact">Let's Work Together</a>
+</div>
+</div>
+</section>
+
+<section id="work">
+<div class="container">
+<h2>Selected Work</h2>
+<p class="section-intro">A selection of my video editing work, with featured projects highlighted first.</p>
+<div class="portfolio">
+<article class="project featured">
+<div class="video-wrap">
+<iframe
+  src="https://www.youtube.com/embed/Fze0CNOkV5I"
+  title="1000000714.mp4"
+  referrerpolicy="origin"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+</div>
+<div class="project-info">
+<div class='featured-label'>Featured Work</div>
+<h3>1000000714 — Video Edit</h3>
+<p>Promotional video • Brand content</p>
+<span class="tag">Video Editing</span>
+</div>
+</article>
+<article class="project featured">
+<div class="video-wrap">
+<iframe
+  src="https://www.youtube.com/embed/7KEbTJxHt0U"
+  title="12324165489.mp4"
+  referrerpolicy="origin"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+</div>
+<div class="project-info">
+<div class='featured-label'>Featured Work</div>
+<h3>Creative Social Media Video</h3>
+<p>Video editing • Social media content</p>
+<span class="tag">Video Editing</span>
+</div>
+</article>
+<article class="project ">
+<div class="video-wrap">
+<iframe
+  src="https://www.youtube.com/embed/zVidRI9R73w"
+  title="0830.mp4"
+  referrerpolicy="origin"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+</div>
+<div class="project-info">
+
+<h3>0830 — Promotional Video</h3>
+<p>Video editing • Promotional content</p>
+<span class="tag">Video Editing</span>
+</div>
+</article>
+<article class="project ">
+<div class="video-wrap">
+<iframe
+  src="https://www.youtube.com/embed/xB5znoUXLJU"
+  title="BRAINLIX FINAL VIDEO .mp4"
+  referrerpolicy="origin"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+</div>
+<div class="project-info">
+
+<h3>Brainlix — Video Edit</h3>
+<p>Video editing • Educational / social content</p>
+<span class="tag">Video Editing</span>
+</div>
+</article>
+<article class="project ">
+<div class="video-wrap">
+<iframe
+  src="https://www.youtube.com/embed/xoady5jdQ2g"
+  title="CMB.mp4"
+  referrerpolicy="origin"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+</div>
+<div class="project-info">
+
+<h3>CMB — Video Edit</h3>
+<p>Video editing • Content production</p>
+<span class="tag">Video Editing</span>
+</div>
+</article>
+<article class="project ">
+<div class="video-wrap">
+<iframe
+  src="https://www.youtube.com/embed/wI_JCLds-2I"
+  title="FUNTASEA FINAL VIDEO.mp4"
+  referrerpolicy="origin"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+</div>
+<div class="project-info">
+
+<h3>Funtasea — Promotional Video</h3>
+<p>Promotional video • Social media content</p>
+<span class="tag">Video Editing</span>
+</div>
+</article>
+<article class="project ">
+<div class="video-wrap">
+<iframe
+  src="https://www.youtube.com/embed/6C4leIfa1pk"
+  title="LAPTOP ORIGINAL FEB 27.mp4"
+  referrerpolicy="origin"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+</div>
+<div class="project-info">
+
+<h3>Laptop — Promotional Video</h3>
+<p>Video editing • Product / social content</p>
+<span class="tag">Video Editing</span>
+</div>
+</article>
+<article class="project ">
+<div class="video-wrap">
+<iframe
+  src="https://www.youtube.com/embed/d5LLg8UwgYQ"
+  title="LECHON DE LALOMA.mp4"
+  referrerpolicy="origin"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+</div>
+<div class="project-info">
+
+<h3>Lechon de Laloma — Promotional Video</h3>
+<p>Video editing • Food / business content</p>
+<span class="tag">Video Editing</span>
+</div>
+</article>
+<article class="project ">
+<div class="video-wrap">
+<iframe
+  src="https://www.youtube.com/embed/8W3TlTXx22s"
+  title="moving ads.mp4"
+  referrerpolicy="origin"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+</div>
+<div class="project-info">
+
+<h3>Moving Ads — Video Edit</h3>
+<p>Video editing • Advertising content</p>
+<span class="tag">Video Editing</span>
+</div>
+</article>
+<article class="project ">
+<div class="video-wrap">
+<iframe
+  src="https://www.youtube.com/embed/60TfCtZWaRM"
+  title="WANDER TALES TRAVEL AND TOUR (1).mp4"
+  referrerpolicy="origin"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+</div>
+<div class="project-info">
+
+<h3>Wander Tales — Travel &amp; Tour</h3>
+<p>Video editing • Travel / promotional content</p>
+<span class="tag">Video Editing</span>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<section id="posters">
+<div class="container">
+<h2>Posters & Graphic Design</h2>
+<p class="section-intro">Selected promotional posters and social media graphics.</p>
+<div class="posters">
+<button class="poster-card" type="button" onclick="openPoster(0)">
+<img src="30.jpg" alt="Poster design 1" loading="lazy">
+</button>
+<button class="poster-card" type="button" onclick="openPoster(1)">
+<img src="30.jpg" alt="Poster design 2" loading="lazy">
+</button>
+<button class="poster-card" type="button" onclick="openPoster(2)">
+<img src="28.jpg" alt="Poster design 3" loading="lazy">
+</button>
+<button class="poster-card" type="button" onclick="openPoster(3)">
+<img src="27.jpg" alt="Poster design 4" loading="lazy">
+</button>
+<button class="poster-card" type="button" onclick="openPoster(4)">
+<img src="26.jpg" alt="Poster design 5" loading="lazy">
+</button>
+<button class="poster-card" type="button" onclick="openPoster(5)">
+<img src="25.jpg" alt="Poster design 6" loading="lazy">
+</button>
+<button class="poster-card" type="button" onclick="openPoster(6)">
+<img src="24.jpg" alt="Poster design 7" loading="lazy">
+</button>
+<button class="poster-card" type="button" onclick="openPoster(7)">
+<img src="23.jpg" alt="Poster design 8" loading="lazy">
+</button>
+<button class="poster-card" type="button" onclick="openPoster(8)">
+<img src="22.jpg" alt="Poster design 9" loading="lazy">
+</button>
+<button class="poster-card" type="button" onclick="openPoster(9)">
+<img src="21.jpg" alt="Poster design 10" loading="lazy">
+</button>
+<button class="poster-card" type="button" onclick="openPoster(10)">
+<img src="20.jpg" alt="Poster design 11" loading="lazy">
+</button>
+<button class="poster-card" type="button" onclick="openPoster(11)">
+<img src="19.jpg" alt="Poster design 12" loading="lazy">
+</button>
+<button class="poster-card" type="button" onclick="openPoster(12)">
+<img src="18.jpg" alt="Poster design 13" loading="lazy">
+</button>
+<button class="poster-card" type="button" onclick="openPoster(13)">
+<img src="17.jpg" alt="Poster design 14" loading="lazy">
+</button>
+<button class="poster-card" type="button" onclick="openPoster(14)">
+<img src="16.jpg" alt="Poster design 15" loading="lazy">
+</button>
+<button class="poster-card" type="button" onclick="openPoster(15)">
+<img src="15.jpg" alt="Poster design 16" loading="lazy">
+</button>
+<button class="poster-card" type="button" onclick="openPoster(16)">
+<img src="14.jpg" alt="Poster design 17" loading="lazy">
+</button>
+<button class="poster-card" type="button" onclick="openPoster(17)">
+<img src="12.jpg" alt="Poster design 18" loading="lazy">
+</button>
+<button class="poster-card" type="button" onclick="openPoster(18)">
+<img src="11.jpg" alt="Poster design 19" loading="lazy">
+</button>
+<button class="poster-card" type="button" onclick="openPoster(19)">
+<img src="10.jpg" alt="Poster design 20" loading="lazy">
+</button>
+</div>
+</div>
+</section>
+
+<section id="about">
+<div class="container">
+<div class="about">
+<div class="kicker">A little about me</div>
+<h2>Hi, I'm Drew.</h2>
+<p>I'm a video editor focused on clean editing, visual storytelling, and content that keeps people watching. I enjoy turning raw footage into polished videos for brands, businesses, creators, and social media.</p>
+<p style="margin-top:16px">Outside of editing, I'm a married family man and a proud father of one. I bring the same dedication, creativity, and attention to detail to every project I work on.</p>
+</div>
+<div class="family-grid">
+<button class="family-card" type="button" onclick="openFamily(0)">
+<img src="459727830_536455352268260_6531538098741378964_n.jpg" alt="Family photo 1" loading="lazy">
+</button>
+<button class="family-card" type="button" onclick="openFamily(1)">
+<img src="74aed6aa-0911-4a9e-aacf-329865bd8c27.jpg" alt="Family photo 2" loading="lazy">
+</button>
+<button class="family-card" type="button" onclick="openFamily(2)">
+<img src="487557532_680018417911952_3198035512314660185_n.jpg" alt="Family photo 3" loading="lazy">
+</button>
+<button class="family-card" type="button" onclick="openFamily(3)">
+<img src="488258025_680018441245283_4460370947428664967_n.jpg" alt="Family photo 4" loading="lazy">
+</button>
+<button class="family-card" type="button" onclick="openFamily(4)">
+<img src="487876958_680018934578567_2494439115734314438_n.jpg" alt="Family photo 5" loading="lazy">
+</button>
+</div>
+</div>
+</section>
+
+<section id="services">
+<div class="container">
+<h2>Services</h2>
+<p class="section-intro">Creative services for businesses, creators, and social media brands.</p>
+<div class="services">
+<div class="service"><h3>Short-form Video</h3><p>Reels, TikTok, YouTube Shorts and social-first edits.</p></div>
+<div class="service"><h3>Promotional Videos</h3><p>Business, hotel, product and service promotional content.</p></div>
+<div class="service"><h3>Photo & Graphic Design</h3><p>Photoshop-based graphics, thumbnails and social media creatives.</p></div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<div class="contact">
+<h2>Let's work together.</h2>
+<p>Have a project in mind? I'd love to help bring your ideas to life.</p>
+<p><strong>Email:</strong> drewablola.mebs@gmail.com</p>
+<p><strong>Phone:</strong> 09813133163</p>
+<p><strong>Location:</strong> Philippines • Available for remote work</p>
+<div class="buttons">
+<a class="btn" href="mailto:drewablola.mebs@gmail.com">Contact Me</a>
+</div>
+</div>
+</div>
+</section>
+
+<footer><div class="container">© 2026 Drewmedia • Video Editor Portfolio</div></footer>
+
+<div class="modal" id="mediaModal" onclick="closeMedia()">
+<button type="button" onclick="event.stopPropagation();closeMedia()">×</button>
+<img id="mediaPreview" src="" alt="Preview">
+</div>
+
+<script>
+const posters = ["30.jpg","30.jpg","28.jpg","27.jpg","26.jpg","25.jpg","24.jpg","23.jpg","22.jpg","21.jpg","20.jpg","19.jpg","18.jpg","17.jpg","16.jpg","15.jpg","14.jpg","12.jpg","11.jpg","10.jpg"];
+const family = ["459727830_536455352268260_6531538098741378964_n.jpg","74aed6aa-0911-4a9e-aacf-329865bd8c27.jpg","487557532_680018417911952_3198035512314660185_n.jpg","488258025_680018441245283_4460370947428664967_n.jpg","487876958_680018934578567_2494439115734314438_n.jpg"];
+function openPoster(i) {
+  document.getElementById('mediaPreview').src = posters[i];
+  document.getElementById('mediaModal').classList.add('open');
+}
+function openFamily(i) {
+  document.getElementById('mediaPreview').src = family[i];
+  document.getElementById('mediaModal').classList.add('open');
+}
+function closeMedia() {
+  document.getElementById('mediaModal').classList.remove('open');
+  document.getElementById('mediaPreview').src = '';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMedia();});
+</script>
+</body>
+</html>
